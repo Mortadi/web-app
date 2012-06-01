@@ -1,8 +1,9 @@
-# Roster Day 
+# Roster Day
+
 Roster Day is to do list application provides you an accurate schedule for your daily notes, e-mails, gallery and dates to display it to you by a simple way to make everything clear and ready to process by you. 
 It is for people who like their lives sorted and well organized by using a device application either to be tablet or desktop, online or offline.
 
-### Features
+ ### Features
 
 - Shows each day individual or by week or month view.
 - Compose drafts offline and send it when you will connect to internet and e-mail notifications.
@@ -34,7 +35,7 @@ This application is going to be something I am proud of in my career. Therefore,
 Teuxdeux does not offer e-mail notifications. 
 It works with iPhones only.
 
-  **Differences**
+	**Differences**
 	Roster Day will obtain you more access to your e-mail and will filter your data as well. RD is functioned to simple things for you.
 
 - [Nirvana]( https://nirvanahq.com/)
