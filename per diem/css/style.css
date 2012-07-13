@@ -1,0 +1,76 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+background-color:#333;	
+font-family: 'Simonetta', cursive;
+}
+.main {
+background-color:#999;	
+margin:1em auto;
+width: 40em;
+height: 35em;
+border-radius: 3.5em 0.75em;
+-moz-box-shadow: 5px 5px 5px #FC0;
+-webkit-box-shadow:  5px 5px 5px #FC0;
+box-shadow: 5px 5px 5px #FC0;
+}
+h1, h2{
+color: #FC0;
+margin: 0 auto;	
+width: 15em;
+text-shadow:  5px 5px 5px #999;
+}
+h3{
+	color: #FC0;
+	display:inline;
+	margin-left: 13.5em;
+	top: 1em;
+
+}
+header{
+margin-right:5em;
+
+}
+button{
+margin: 9em 2.85em;
+width: 18em;
+height:3em;
+background-color: #FC0;
+display: inline;
+font-family: 'Simonetta', cursive;
+font-size: 13.25px;
+border-radius: 1em 0.5em;
+-moz-box-shadow: 5px 5px 5px #333;
+-webkit-box-shadow:  5px 5px 5px #333;
+box-shadow: 5px 5px 5px #333;
+}
+textarea{
+width: 42em;
+height:18em;
+margin: -6.5em 3.25em;
+background-color: #FC0;
+color: #333;
+border-radius: 1em 0.5em;
+-moz-box-shadow: 5px 5px 5px #333;
+-webkit-box-shadow:  5px 5px 5px #333;
+box-shadow: 5px 5px 5px #333;
+padding: 2px;
+}
+.submit{
+margin-top:8.5em;	
+margin-left: 3.15em;
+}
+.search{
+	width: 20em;
+	margin-left: 1em;
+	margin-top:-0.5em;
+	padding: 1px;
+	color: #333;
+z-index: 2;
+border-radius: 1em 0.5em;
+-moz-box-shadow: 5px 5px 5px #333;
+-webkit-box-shadow:  5px 5px 5px #333;
+box-shadow: 5px 5px 5px #333;
+	
+}
