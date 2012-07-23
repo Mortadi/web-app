@@ -9,7 +9,7 @@ font-family: 'Simonetta', cursive;
 background-color:#999;	
 margin:1em auto;
 width: 40em;
-height: 40em;
+height: 37em;
 border-radius: 3.5em 0.75em;
 -moz-box-shadow: 5px 5px 5px #FC0;
 -webkit-box-shadow:  5px 5px 5px #FC0;
@@ -33,13 +33,14 @@ margin-right:5em;
 
 }
 button{
-margin: 4em 2.85em;
+margin:3.5em 0.88em;
+padding:0;
 width: 18em;
 height:3em;
 background-color: #FC0;
 display: inline;
 font-family: 'Simonetta', cursive;
-font-size: 13.25px;
+font-size: 16px;
 border-radius: 1em 0.5em;
 -moz-box-shadow: 5px 5px 5px #333;
 -webkit-box-shadow:  5px 5px 5px #333;
@@ -48,7 +49,7 @@ box-shadow: 5px 5px 5px #333;
 textarea{
 width: 42em;
 height:18em;
-margin: 3.5em 3.25em;
+margin: 1.5em 3.25em;
 background-color: #FC0;
 color: #333;
 border-radius: 1em 0.5em;
@@ -58,8 +59,8 @@ box-shadow: 5px 5px 5px #333;
 padding: 2px;
 }
 .submit{
-margin-top:1.5em;	
-margin-left: 3.15em;
+margin-top:0.5em;	
+margin-left: 11em;
 }
 .search{
 	width: 20em;
@@ -107,7 +108,7 @@ padding: 0;
 }
 h4{
 	color: #FC0;
-size:9px;	
+font-size:17px;	
 display: inline;	
 margin-right:3px;
 }
