@@ -9,7 +9,7 @@ font-family: 'Simonetta', cursive;
 background-color:#999;	
 margin:1em auto;
 width: 40em;
-height: 35em;
+height: 40em;
 border-radius: 3.5em 0.75em;
 -moz-box-shadow: 5px 5px 5px #FC0;
 -webkit-box-shadow:  5px 5px 5px #FC0;
@@ -33,7 +33,7 @@ margin-right:5em;
 
 }
 button{
-margin: 9em 2.85em;
+margin: 4em 2.85em;
 width: 18em;
 height:3em;
 background-color: #FC0;
@@ -48,7 +48,7 @@ box-shadow: 5px 5px 5px #333;
 textarea{
 width: 42em;
 height:18em;
-margin: -6.5em 3.25em;
+margin: 3.5em 3.25em;
 background-color: #FC0;
 color: #333;
 border-radius: 1em 0.5em;
@@ -58,13 +58,13 @@ box-shadow: 5px 5px 5px #333;
 padding: 2px;
 }
 .submit{
-margin-top:8.5em;	
+margin-top:1.5em;	
 margin-left: 3.15em;
 }
 .search{
 	width: 20em;
 	margin-left: 1em;
-	margin-top:-0.5em;
+	margin-top:2em;
 	padding: 1px;
 	color: #333;
 z-index: 2;
@@ -73,4 +73,41 @@ border-radius: 1em 0.5em;
 -webkit-box-shadow:  5px 5px 5px #333;
 box-shadow: 5px 5px 5px #333;
 	
+}
+.titlebox  {
+display: inline;	
+	width: 15em;
+
+	margin-top:-20em;
+	color: #333;
+z-index: 1;
+border-radius: 1em 0.5em;
+-moz-box-shadow: 5px 5px 5px #333;
+-webkit-box-shadow:  5px 5px 5px #333;
+box-shadow: 5px 5px 5px #333;
+	
+}
+.datebox{
+	display: inline;
+	color: #333;
+z-index: 1;
+margin-right: 7em;
+
+border-radius: 1em 0.5em;
+-moz-box-shadow: 5px 5px 5px #333;
+-webkit-box-shadow:  5px 5px 5px #333;
+box-shadow: 5px 5px 5px #333;	
+}
+.info{
+display: inline;	
+width: 20em;
+margin-left:3.5em;
+z-index:6;
+padding: 0;
+}
+h4{
+	color: #FC0;
+size:9px;	
+display: inline;	
+margin-right:3px;
 }
