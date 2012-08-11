@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 30, 2012 at 05:40 PM
+-- Generation Time: Aug 11, 2012 at 09:05 PM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -28,8 +28,8 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 CREATE TABLE IF NOT EXISTS `per_diem` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` int(40) NOT NULL,
+  `note` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `date` date NOT NULL,
-  `calendar` date NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 

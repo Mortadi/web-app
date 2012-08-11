@@ -96,7 +96,7 @@ $results = $sql->fetchAll();
 <!--<h4>Search:</h4><input type="text" class="searchbox"></input></div>-->
 
 </br><?php echo $notes['note']; ?><textarea></textarea></br><button type="submit" class="submit">Submit</button>
-<a href="single.php?id=<?php echo $notes['id']; ?>"><button type="notes">Notes</button></a>
+<a href="single.php=<?php echo $notes['id']; ?>"><button type="notes">Notes</button></a>
 
 <?php endforeach; ?>
 </form>
