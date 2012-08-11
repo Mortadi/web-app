@@ -4,7 +4,7 @@ require_once 'includes/db.php';
 
 
 $sql = $db->query('
-SELECT id, title, date, theme
+SELECT id, title, note, date
 FROM per_diem
 ORDER BY date ASC
 ');
@@ -40,8 +40,8 @@ $results = $sql->fetchAll();
             wheels = [];
             
             for (var i = 0; i < 60; i++) {
-                if (i < 16) wheels[0]['Hours'][i] = (i < 10) ? ('0' + i) : i;
-                wheels[1]['Minutes'][i] = (i < 10) ? ('0' + i) : i;
+               /* if (i < 16) wheels[0]['Hours'][i] = (i < 10) ? ('0' + i) : i;
+                wheels[1]['Minutes'][i] = (i < 10) ? ('0' + i) : i;*/
             }
             $('#custom').scroller({
                 width: 90,
@@ -86,17 +86,19 @@ $results = $sql->fetchAll();
         });
     </script>
 <div class="main">
+
+ 
 <form>
-
-
-  <div class="info"><h4>Date:</h4><input type="text" name="date1"  class="datebox" id="date1" class="mobiscroll" readonly="readonly" ></input>
-  <h4>Title:</h4><input type="text" class="titlebox"></input></div>
+<?php foreach ($results as $notes) : ?>
+<?php echo $note['id']; ?>
+  <?php echo $notes['date']; ?><div class="info"><h4>Date:</h4><input type="text" name="date1"  class="datebox" id="date1" class="mobiscroll" readonly="readonly" ></input>
+  <?php echo $notes['title']; ?><h4>Title:</h4><input type="text" class="titlebox"></input></div>
 <!--<h4>Search:</h4><input type="text" class="searchbox"></input></div>-->
-</br><textarea></textarea></br><button type="submit" class="submit">Submit</button>
-<button type="calendar">Calendar</button>
-<button type="notes">Notes</button>
 
+</br><?php echo $notes['note']; ?><textarea></textarea></br><button type="submit" class="submit">Submit</button>
+<a href="single.php?id=<?php echo $notes['id']; ?>"><button type="notes">Notes</button></a>
 
+<?php endforeach; ?>
 </form>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -106,4 +108,5 @@ $results = $sql->fetchAll();
 
 
 
-                    
+                   
+
