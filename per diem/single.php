@@ -7,7 +7,7 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 $sql = $db->prepare('
 SELECT id, title, note, date
 FROM per_diem
-WHERE id = :id
+ORDER BY date ASC
 ');
 $sql->bindValue(':id', $id, PDO::PARAM_INT);
 $sql->execute();
@@ -20,11 +20,9 @@ $results = $sql->fetch();
 </head>
 
 <body>
-<title><?php echo $results['title']; ?> </title>
+<h1><?php echo $results['title']; ?> </h1>
 <h1><?php echo $results['date']; ?></h1>
-
-<dd><?php echo $results['note']; ?></dd>
-
+<h2><?php echo $results['note']; ?></h2>
 <a href="delete.php?id=<?php echo $id; ?>">Delete</a>
 <a href="edit.php?id=<?php echo $id; ?>">Edit</a>
 
