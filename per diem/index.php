@@ -1,7 +1,7 @@
 <?php
 
 require_once 'includes/db.php';
-
+require_once 'includes/users.php';
 
 $sql = $db->query('
 SELECT id, title, note, date
@@ -9,10 +9,10 @@ FROM per_diem
 ORDER BY date ASC
 ');
 
-//var_dump($db->errorInfo());
+/*var_dump($db->errorInfo());
 
 $results = $sql->fetchAll();
-
+*/
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -86,19 +86,14 @@ $results = $sql->fetchAll();
         });
     </script>
 <div class="main">
-
  
 <form>
-<?php foreach ($results as $notes) : ?>
-<?php echo $note['id']; ?>
-  <?php echo $notes['date']; ?><div class="info"><h4>Date:</h4><input type="text" name="date1"  class="datebox" id="date1" class="mobiscroll" readonly="readonly" ></input>
-  <?php echo $notes['title']; ?><h4>Title:</h4><input type="text" class="titlebox"></input></div>
+ <div class="info">
+<?php echo $notes['date']; ?><h4>Date:</h4><input type="text" name="date1"  class="datebox" id="date1" class="mobiscroll" readonly="readonly"></input>
+<h4>Title:</h4><input type="text" class="titlebox"></input><?php echo $notes['title']; ?></div>
 <!--<h4>Search:</h4><input type="text" class="searchbox"></input></div>-->
-
-</br><?php echo $notes['note']; ?><textarea></textarea></br><button type="submit" class="submit">Submit</button>
-<a href="single.php=<?php echo $notes['id']; ?>"><button type="notes">Notes</button></a>
-
-<?php endforeach; ?>
+</br><textarea></textarea></br><button type="submit" class="submit"<?php echo $notes['note']; ?>>Submit</button>
+<a href="single.php<?php echo $notes['id']; ?>"<button type="notes">Notes</button>></a>
 </form>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
