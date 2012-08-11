@@ -70,7 +70,7 @@ margin-right: 9em;
 background-color: #666;
 color: #FC0;
 }
-.searchbox{
+/*.searchbox{
 display: inline;	
 	width: 10em;
 
@@ -81,14 +81,14 @@ border-radius: 1em 0.5em;
 -moz-box-shadow: 5px 5px 5px #333;
 -webkit-box-shadow:  5px 5px 5px #333;
 box-shadow: 5px 5px 5px #333;
-}
+}*/
 form{
 	margin: 1em auto;
 	width: 48em;
 }
 .titlebox  {
 display: inline;	
-	width: 13em;
+	width: 25em;
 
 	margin-top:20em;
 	margin-right: 1em;
@@ -105,7 +105,7 @@ box-shadow: 5px 5px 5px #333;
 	color: #333;
 z-index: 1;
 margin-right: 1em;
-width: 7em;
+width: 10em;
 border-radius: 1em 0.5em;
 -moz-box-shadow: 5px 5px 5px #333;
 -webkit-box-shadow:  5px 5px 5px #333;
