@@ -14,31 +14,35 @@ require_once 'includes/db.php';
 $errors = array();
 
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
-$dino_name = filter_input(INPUT_POST, 'dino_name', FILTER_SANITIZE_STRING);
-$loves_meat = filter_input(INPUT_POST, 'loves_meat', FILTER_SANITIZE_NUMBER_INT);
-$in_jurassic_park = (isset($_POST['in_jurassic_park'])) ? 1 : 0;
+$title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
+$date = filter_input(INPUT_POST, 'date', FILTER_SANITIZE_STRING);
+$note = filter_input(INPUT_POST, 'note', FILTER_SANITIZE_STRING);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-if (strlen($dino_name) < 1 || strlen($dino_name) > 256) {
-$errors['dino_name'] = true;
-}
+	if (strlen($title) < 1 || strlen($title) > 60) {
+		$errors['title'] = true;
+	}
+	
+	if (empty($date)) {
+		$errors['date'] = true;
+	}
+	if (strlen($note) < 1 || strlen($note) > 1000) {
+		$errors['note'] = true;
+	}
+if (empty($errors)){
+	
 
-if (!in_array($loves_meat, array(0, 1))) {
-$errors['loves_meat'] = true;
-}
+		
+		$sql = $db->prepare('
+		
+		UPDATE per_diem SET title=:title, date=:date, note=:note
+		WHERE id = :id
 
-if (empty($errors)) {
-$sql = $db->prepare('
-UPDATE dinosaurs
-SET dino_name = :dino_name
-, loves_meat = :loves_meat
-, in_jurassic_park = :in_jurassic_park
-WHERE id = :id
 ');
 $sql->bindValue(':id', $id, PDO::PARAM_INT);
-$sql->bindValue(':dino_name', $dino_name, PDO::PARAM_STR);
-$sql->bindValue(':loves_meat', $loves_meat, PDO::PARAM_INT);
-$sql->bindValue(':in_jurassic_park', $in_jurassic_park, PDO::PARAM_INT);
+$sql->bindValue(':title', $title, PDO::PARAM_STR);
+$sql->bindValue(':date', $date, PDO::PARAM_STR);
+$sql->bindValue(':note', $note, PDO::PARAM_STR);
 $sql->execute();
 
 header('Location: index.php');
@@ -92,7 +96,7 @@ Date
 <strong class="error">is required</strong>
 <?php endif; ?>
 </legend>
- <input type="text" name="date1" id="date1" class="mobiscroll" readonly="readonly" value="12/08/2010" />
+ <input type="text" name="date1" id="date1" class="mobiscroll" readonly value="12/08/2010" />
 </fieldset>
 
 <div>

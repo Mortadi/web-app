@@ -94,7 +94,7 @@ $results = $sql->fetchAll();
 <ol><h2><?php echo $notes ['title']; ?></h2>
 <h2><a href="single.php?id=<?php echo $notes['id']; ?>"><?php echo $notes['date']; ?></h2></a>
 </ol>
-<hr size=4 width="99%"> 
+<hr size=5 width="88%"> 
 <?php endforeach; ?>
 </div>
 <div class="another"><a href="index.php"><button type="notes"><h2>Make another note</h2></button></a></div>
