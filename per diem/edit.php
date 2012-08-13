@@ -4,10 +4,7 @@ require_once 'includes/users.php';
 
 $_SESSION['referrer'] = $_SERVER['REQUEST_URI'];
 
-if (!user_is_signed_in()) {
-header('Location: sign-in.php');
-exit;
-}
+
 
 require_once 'includes/db.php';
 
@@ -67,49 +64,96 @@ $note = $results['note'];
 <html>
 <head>
 <meta charset="utf-8">
-<title>Edit Notes</title>
+<title>Per Diem</title>
+<link href="css/style.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Simonetta' rel='stylesheet' type='text/css'>
+<link rel="stylesheet"  href="http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.min.css" />
+  <script src="js/mobiscroll-1.5.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+  <link href="css/mobiscroll-1.5.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript">
+        $(document).ready(function () {
+            $('#date1').scroller();
+            wheels = [];
+            
+            for (var i = 0; i < 60; i++) {
+               /* if (i < 16) wheels[0]['Hours'][i] = (i < 10) ? ('0' + i) : i;
+                wheels[1]['Minutes'][i] = (i < 10) ? ('0' + i) : i;*/
+            }
+            $('#custom').scroller({
+                width: 90,
+                wheels: wheels,
+                showOnFocus: false,
+                formatResult: function (d) {
+                    return ((d[0] - 0) + ((d[1] - 0) / 60)).toFixed(1);
+                },
+                parseValue: function (s) {
+                    var d = s.split('.');
+                    d[0] = d[0] - 0;
+                    d[1] = d[1] ? ((('0.' + d[1]) - 0) * 60) : 0;
+                    return d;
+                }
+            });
+            $('#custom').click(function() { $(this).scroller('show'); });
+            $('#disable').click(function() {
+                if ($('#date1').scroller('isDisabled')) {
+                    $('#date2').scroller('enable');
+                    $(this).text('Disable');
+                }
+                else {
+                  
+                    $(this).text('Enable');
+                }
+                return false;
+            });
+
+           
+
+            $('#set').click(function() {
+                $('#date1').scroller('setDate', new Date(), true);
+                return false;
+            });
+
+            $('#theme, #mode').change(function() {
+                var t = $('#theme').val();
+                var m = $('#mode').val();
+                $('#date1').scroller('destroy').scroller({ theme: t, mode: m });
+               
+            });
+        });
+    </script>
 </head>
+
 <body>
-
-<?php if (user_is_signed_in()) : ?>
-<a href="sign-out.php">Sign Out</a>
-<?php endif; ?>
-
+<div class="main">
 <h1>Edit Notes</h1>
 
 <form method="post" action="edit.php?id=<?php echo $id; ?>">
 
-<div>
-<label for="title">
-Title
-<?php if (isset($errors['title'])) : ?>
-<strong class="error">is required</strong>
-<?php endif; ?>
+<label for="date"><h4>Date:</h4>
+  <?php if (isset($errors['date'])) : ?>
+  <strong class="error">is required.</strong>
+  <?php endif; ?>
 </label>
-<input id="title" name="title" required value="<?php echo $title; ?>">
-</div>
+<input type="text" name="date"  class="datebox" id="date1" class="mobiscroll" readonly="readonly" <?php echo $date; ?>></input>
+            
+            
+<label for="title"><h4>Title:</h4>
+  <?php if (isset($errors['title'])) : ?>
+  <strong class="error">is required.</strong>
+  <?php endif; ?>
+</label>
+<input name="title" type="text" class="titlebox"<?php echo $title; ?>></input>
 
-<fieldset>
-<legend>
-Date
-<?php if (isset($errors['date'])) : ?>
-<strong class="error">is required</strong>
-<?php endif; ?>
-</legend>
- <input type="text" name="date1" id="date1" class="mobiscroll" readonly value="12/08/2010" />
-</fieldset>
 
-<div>
-</br><label for="note">Note</label><?php echo $notes['note']; ?><textarea></textarea></br>
-<a href="single.php=<?php echo $notes['id']; ?>"><button type="notes">Notes</button></a>
-<?php if (isset($errors['note'])) : ?>
-<?php endif; ?>
-</div>
 
+<label for="note">
+            	
+            </label>
+        	</br><textarea name="note"></textarea></br>
 <button type="submit">Save</button>
 
 </form>
 
 </body>
 </html>
-
