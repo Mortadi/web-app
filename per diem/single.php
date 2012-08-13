@@ -33,12 +33,14 @@ $results = $sql->fetch();
 </header>
 <body>
 <div class="singlebody">
+<div class="main">
 <h1><?php echo $results['title']; ?> </h1>
 <h1><?php echo $results['date']; ?></h1>
 <h2><?php echo $results['note']; ?></h2>
 <a href="delete.php?id=<?php echo $id; ?>"><button>Delete</button></a>
 <a href="edit.php?id=<?php echo $id; ?>"><button>Edit</button></a>
 <div class="notesbutton"><a href="notes.php"><button>Notes</button></a></div>
+</div>
 </div>
 </body>
 </html>

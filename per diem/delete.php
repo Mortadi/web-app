@@ -1,15 +1,11 @@
 <?php
 
-require_once 'includes/users.php';
+require_once 'includes/db.php';
 
 $_SESSION['referrer'] = $_SERVER['REQUEST_URI'];
 
-if (!user_is_signed_in()) {
-  header('Location: sign-in.php');
-  exit;
-}
 
-require_once 'includes/db.php';
+
 
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
@@ -27,5 +23,5 @@ WHERE id = :id
 $sql->bindValue(':id', $id, PDO::PARAM_INT);
 $sql->execute();
 
-header('Location: index.php');
+header('Location: notes.php');
 exit;

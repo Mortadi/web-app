@@ -142,9 +142,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </label>
         	</br><textarea name="note"></textarea></br>
         	
-            <button type="submit">Submit</button> 
+            <button type="submit" class="submit">Submit</button> 
         </form>
-      <div class="notesbutton"><a href="notes.php"><button>Notes</button></a></div>
+      <a href="notes.php"><button  class="notesbutton">Notes</button></a></div>
 </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>

@@ -1,11 +1,5 @@
 <?php
 
-require_once 'includes/users.php';
-
-$_SESSION['referrer'] = $_SERVER['REQUEST_URI'];
-
-
-
 require_once 'includes/db.php';
 
 $errors = array();
@@ -32,7 +26,8 @@ if (empty($errors)){
 		
 		$sql = $db->prepare('
 		
-		UPDATE per_diem SET title=:title, date=:date, note=:note
+		UPDATE per_diem 
+		SET title = :title, date = :date, note = :note
 		WHERE id = :id
 
 ');

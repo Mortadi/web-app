@@ -13,6 +13,10 @@ font-family: 'Simonetta', cursive;
 	border-radius: 7em 0.5em;
 	min-width: 50em;
 }
+.main a{
+width: 5em;	
+margin: 0 auto;
+}
 h1, h2{
 color: #FC0;
 margin: 0 auto;	
@@ -40,7 +44,7 @@ margin-right:5em;
 button{
 margin:1.5em 0.88em;
 padding:0;
-width: 8em;
+width: 10em;
 height:3em;
 background-color: #FC0;
 display: inline;
@@ -55,6 +59,7 @@ a button{
 background-color: #999;	
 list-style-type: none;
 color: #FC0;
+clear:both;
 }
 .another button{
 width:23em;	
@@ -66,7 +71,7 @@ margin: 0 auto;
 textarea{
 width: 45em;
 height:22em;
-margin: 2em auto;
+margin: 1em auto;
 background-color: #FC0;
 color: #333;
 border-radius: 1em 0.5em;
@@ -82,21 +87,10 @@ margin-right: 9em;
 background-color: #666;
 color: #FC0;
 }
-/*.searchbox{
-display: inline;	
-	width: 10em;
-
-	margin-top:20em;
-	color: #333;
-z-index: 1;
-border-radius: 1em 0.5em;
--moz-box-shadow: 5px 5px 5px #333;
--webkit-box-shadow:  5px 5px 5px #333;
-box-shadow: 5px 5px 5px #333;
-}*/
 form{
 	margin: 2.25em auto;
-	width: 48em;
+	width: 45em;
+
 }
 .titlebox  {
 display: inline;	
@@ -146,13 +140,22 @@ margin-right:3px;
 ol a{
 	color: #CCC;
 }
-.notesbutton{
-width: 1em;
-margin:-6em auto;
-
-
+.submit{
+width: 25em;
 }
-.notesbutton a{
-	list-style-type: none;
+.notesbutton{
+width: 10em;
+clear:both;
+margin:1em auto;
+float: none;
+margin-right: 28em;
+background-color: #FC0;
+color:#999;
+}
+#notesbutton a{
+list-style-type: none;
+margin: 0;
+padding: 0;	
+clear:both;
 
 }
