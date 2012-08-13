@@ -51,10 +51,22 @@ border-radius: 1em 0.5em;
 -webkit-box-shadow:  5px 5px 5px #333;
 box-shadow: 5px 5px 5px #333;
 }
+a button{
+background-color: #999;	
+list-style-type: none;
+color: #FC0;
+}
+.another button{
+width:23em;	
+}
+.another{
+	width:33em;	
+margin: 0 auto;
+}
 textarea{
 width: 45em;
 height:22em;
-margin: 1.5em 4.5em;
+margin: 2em auto;
 background-color: #FC0;
 color: #333;
 border-radius: 1em 0.5em;
@@ -83,14 +95,14 @@ border-radius: 1em 0.5em;
 box-shadow: 5px 5px 5px #333;
 }*/
 form{
-	margin: 1em auto;
+	margin: 2.25em auto;
 	width: 48em;
 }
 .titlebox  {
 display: inline;	
 	width: 25em;
 
-	margin-top:20em;
+	margin-top:2em;
 	margin-right: 1em;
 	color: #333;
 z-index: 1;
@@ -99,6 +111,10 @@ border-radius: 1em 0.5em;
 -webkit-box-shadow:  5px 5px 5px #333;
 box-shadow: 5px 5px 5px #333;
 	
+}
+.singlebody{
+width:40em;
+margin: 1em auto;	
 }
 .datebox{
 	display: inline;
@@ -113,11 +129,13 @@ box-shadow: 5px 5px 5px #333;
 }
 .info{
 display: inline-block;	
-
-margin-top:-15.5em;
-margin-left: 3.75em;
+margin:-15.5em 1em 1em 5em;
 z-index:12;
 padding: 0;
+}
+.error{
+color: rgb(255,51,0);	
+	
 }
 h4{
 	color: #FC0;
@@ -125,4 +143,16 @@ font-size:17px;
 display: inline;	
 margin-right:3px;
 }
+ol a{
+	color: #CCC;
+}
+.notesbutton{
+width: 1em;
+margin:-6em auto;
 
+
+}
+.notesbutton a{
+	list-style-type: none;
+
+}

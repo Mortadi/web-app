@@ -4,14 +4,16 @@ require_once 'includes/db.php';
 
 
 $sql = $db->query('
-SELECT id, title, date, theme
+SELECT id, title, note, date
 FROM per_diem
-ORDER BY date ASC
+ORDER BY id DESC
 ');
 
-//var_dump($db->errorInfo());
-
+$sql->execute();
 $results = $sql->fetchAll();
+
+
+
 
 ?>
 <!DOCTYPE HTML>
@@ -40,8 +42,8 @@ $results = $sql->fetchAll();
             wheels = [];
             
             for (var i = 0; i < 60; i++) {
-                if (i < 16) wheels[0]['Hours'][i] = (i < 10) ? ('0' + i) : i;
-                wheels[1]['Minutes'][i] = (i < 10) ? ('0' + i) : i;
+               /* if (i < 16) wheels[0]['Hours'][i] = (i < 10) ? ('0' + i) : i;
+                wheels[1]['Minutes'][i] = (i < 10) ? ('0' + i) : i;*/
             }
             $('#custom').scroller({
                 width: 90,
@@ -86,19 +88,17 @@ $results = $sql->fetchAll();
         });
     </script>
 <div class="main">
-<form>
+ 
+<?php foreach ($results as $notes) : ?>
 
-
-  <div class="info"><h4>Date:</h4><input type="text" name="date1"  class="datebox" id="date1" class="mobiscroll" readonly="readonly" ></input>
-  <h4>Title:</h4><input type="text" class="titlebox"></input></div>
-<!--<h4>Search:</h4><input type="text" class="searchbox"></input></div>-->
-</br><textarea></textarea></br><button type="submit" class="submit">Submit</button>
-<button type="calendar">Calendar</button>
-<button type="notes">Notes</button>
-
-
-</form>
+<ol><h2><?php echo $notes ['title']; ?></h2>
+<h2><a href="single.php?id=<?php echo $notes['id']; ?>"><?php echo $notes['date']; ?></h2></a>
+</ol>
+<hr size=4 width="99%"> 
+<?php endforeach; ?>
 </div>
+<div class="another"><a href="index.php"><button type="notes"><h2>Make another note</h2></button></a></div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="js/general.js"></script>
 </body>
@@ -106,4 +106,5 @@ $results = $sql->fetchAll();
 
 
 
-                    
+                   
+

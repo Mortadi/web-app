@@ -1,18 +1,53 @@
 <?php
 
 require_once 'includes/db.php';
-require_once 'includes/users.php';
 
-$sql = $db->query('
-SELECT id, title, note, date
-FROM per_diem
-ORDER BY date ASC
-');
 
-/*var_dump($db->errorInfo());
 
-$results = $sql->fetchAll();
-*/
+$title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
+$date = filter_input(INPUT_POST, 'date', FILTER_SANITIZE_STRING);
+$note = filter_input(INPUT_POST, 'note', FILTER_SANITIZE_STRING);
+$errors = array();
+
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	if (strlen($title) < 1 || strlen($title) > 60) {
+		$errors['title'] = true;
+	}
+	
+	if (empty($date)) {
+		$errors['date'] = true;
+	}
+	if (strlen($note) < 1 || strlen($note) > 1000) {
+		$errors['note'] = true;
+	}
+
+	if (empty($errors)){
+	
+
+		
+		$sql = $db->prepare('
+		
+		INSERT INTO per_diem (title, date, note)
+		VALUES (:title,:date,:note)
+		
+		');
+		
+		$sql->bindValue(':title', $title, PDO::PARAM_STR);
+		$sql->bindValue(':date', $date, PDO::PARAM_STR);
+		$sql->bindValue(':note', $note, PDO::PARAM_STR);
+		
+		$sql->execute();
+
+		header('Location:notes.php');
+		exit;
+		
+	
+}
+}
+
+
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -25,15 +60,6 @@ $results = $sql->fetchAll();
   <script src="js/mobiscroll-1.5.js" type="text/javascript"></script>
 <script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
   <link href="css/mobiscroll-1.5.css" rel="stylesheet" type="text/css" />
-</head>
-
-<body>
-<header>
-<h1>Per Diem,</h1>
-<h2>Your Fluent Journal</h2>
-</header>
-
-
     <script type="text/javascript">
         $(document).ready(function () {
             $('#date1').scroller();
@@ -85,23 +111,45 @@ $results = $sql->fetchAll();
             });
         });
     </script>
+</head>
+
+<body>
+<header>
+<h1>Per Diem,</h1>
+<h2>Your Fluent Journal</h2>
+</header>
+
+
 <div class="main">
- 
-<form>
- <div class="info">
-<?php echo $notes['date']; ?><h4>Date:</h4><input type="text" name="date1"  class="datebox" id="date1" class="mobiscroll" readonly="readonly"></input>
-<h4>Title:</h4><input type="text" class="titlebox"></input><?php echo $notes['title']; ?></div>
-<!--<h4>Search:</h4><input type="text" class="searchbox"></input></div>-->
-</br><textarea></textarea></br><button type="submit" class="submit"<?php echo $notes['note']; ?>>Submit</button>
-<a href="single.php<?php echo $notes['id']; ?>"<button type="notes">Notes</button>></a>
-</form>
+ <form id="notes" action="index.php" method="post">
+        
+        	<label for="date"><h4>Date:</h4>
+            	<?php if (isset($errors['date'])) : ?>
+                <strong class="error">is required.</strong>
+                <?php endif; ?>
+            </label>
+        	<input type="text" name="date"  class="datebox" id="date1" class="mobiscroll" readonly="readonly" <?php echo $date; ?>></input>
+        	
+        	<label for="title"><h4>Title:</h4>
+            	<?php if (isset($errors['title'])) : ?>
+                <strong class="error">is required.</strong>
+                <?php endif; ?>
+            </label>
+            <input name="title" type="text" class="titlebox"<?php echo $title; ?>></input>
+        	
+        	<label for="note">
+            	
+            </label>
+        	</br><textarea name="note"></textarea></br>
+        	
+            <button type="submit">Submit</button> <div class="notesbutton"><a href="notes.php"><button>Notes</button></a></div>
+        </form>
+      
+</div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="js/general.js"></script>
 </body>
 </html>
 
-
-
-                   
 
