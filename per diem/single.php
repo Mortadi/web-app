@@ -5,13 +5,15 @@ require_once 'includes/db.php';
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
 $sql = $db->prepare('
-SELECT id, title, note, date
+SELECT title, note, date
 FROM per_diem
-ORDER BY date ASC
+WHERE id = :id
 ');
+
 $sql->bindValue(':id', $id, PDO::PARAM_INT);
 $sql->execute();
 $results = $sql->fetch();
+
 
 ?><!DOCTYPE HTML>
 <html>
@@ -39,7 +41,7 @@ $results = $sql->fetch();
 <h2><?php echo $results['note']; ?></h2>
 <a href="delete.php?id=<?php echo $id; ?>"><button>Delete</button></a>
 <a href="edit.php?id=<?php echo $id; ?>"><button>Edit</button></a>
-<div class="notesbutton"><a href="notes.php"><button>Notes</button></a></div>
+<a href="notes.php"><button>Notes</button></a>
 </div>
 </div>
 </body>

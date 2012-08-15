@@ -9,6 +9,10 @@ $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
 $date = filter_input(INPUT_POST, 'date', FILTER_SANITIZE_STRING);
 $note = filter_input(INPUT_POST, 'note', FILTER_SANITIZE_STRING);
 
+
+
+
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if (strlen($title) < 1 || strlen($title) > 60) {
 		$errors['title'] = true;
@@ -20,32 +24,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if (strlen($note) < 1 || strlen($note) > 1000) {
 		$errors['note'] = true;
 	}
-if (empty($errors)){
+	if (empty($errors)){
+		
 	
-
-		
-		$sql = $db->prepare('
-		
-		UPDATE per_diem 
-		SET title = :title, date = :date, note = :note
-		WHERE id = :id
-
-');
-$sql->bindValue(':id', $id, PDO::PARAM_INT);
-$sql->bindValue(':title', $title, PDO::PARAM_STR);
-$sql->bindValue(':date', $date, PDO::PARAM_STR);
-$sql->bindValue(':note', $note, PDO::PARAM_STR);
-$sql->execute();
-
-header('Location: index.php');
-exit;
-}
+			
+			$sql = $db->prepare('
+			
+			UPDATE per_diem 
+			SET title = :title, date = :date, note = :note
+			WHERE id = :id
+	
+		');
+		$sql->bindValue(':id', $id, PDO::PARAM_INT);
+		$sql->bindValue(':title', $title, PDO::PARAM_STR);
+		$sql->bindValue(':date', $date, PDO::PARAM_STR);
+		$sql->bindValue(':note', $note, PDO::PARAM_STR);
+		$sql->execute();
+	
+		header('Location: notes.php');
+		exit;
+	}
+	
 } else {
+	
 $sql = $db->prepare('
 SELECT id, title, note, date
 FROM per_diem
 WHERE id = :id
 ');
+
 $sql->bindValue(':id', $id, PDO::PARAM_INT);
 $sql->execute();
 $results = $sql->fetch();
@@ -53,6 +60,7 @@ $results = $sql->fetch();
 $title = $results['title'];
 $date = $results['date'];
 $note = $results['note'];
+
 }
 
 ?><!DOCTYPE HTML>
@@ -130,7 +138,7 @@ $note = $results['note'];
   <strong class="error">is required.</strong>
   <?php endif; ?>
 </label>
-<input type="text" name="date"  class="datebox" id="date1" class="mobiscroll" readonly="readonly" <?php echo $date; ?>></input>
+<input type="text" name="date"  class="datebox" id="date1" class="mobiscroll" readonly="readonly" value="<?php echo $date; ?>"></input>
             
             
 <label for="title"><h4>Title:</h4>
@@ -138,14 +146,14 @@ $note = $results['note'];
   <strong class="error">is required.</strong>
   <?php endif; ?>
 </label>
-<input name="title" type="text" class="titlebox"<?php echo $title; ?>></input>
+<input name="title" type="text" class="titlebox" value="<?php echo $title; ?>"></input>
 
 
 
 <label for="note">
             	
             </label>
-        	</br><textarea name="note"></textarea></br>
+        	</br><textarea name="note" ><?php echo $note; ?></textarea></br>
 <button type="submit">Save</button>
 
 </form>

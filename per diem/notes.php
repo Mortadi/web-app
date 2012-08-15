@@ -91,6 +91,7 @@ $results = $sql->fetchAll();
  
 <?php foreach ($results as $notes) : ?>
 
+
 <ol><h2><?php echo $notes ['title']; ?></h2>
 <h2><a href="single.php?id=<?php echo $notes['id']; ?>"><?php echo $notes['date']; ?></h2></a>
 </ol>
