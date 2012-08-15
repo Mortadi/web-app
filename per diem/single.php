@@ -38,12 +38,14 @@ $results = $sql->fetch();
 <div class="main"><div class="singlebody">
 <h1><?php echo $results['title']; ?> </h1>
 <h1><?php echo $results['date']; ?></h1>
+</br>
 <h2><?php echo $results['note']; ?></h2>
+</br>
 <button id="deleteButton">Delete</button>
 <a href="edit.php?id=<?php echo $id; ?>"><button>Edit</button></a>
 <a href="notes.php"><button>Notes</button></a>
 <div id="dialogBox">
-	<p>Are you sure?</p>
+	<p>Are you sure to delete?</p>
     <a href="delete.php?id=<?php echo $id; ?>"><button id="yesButton">Yes</button></a>
     <button id="cancelButton">Cancel</button>
 </div>
