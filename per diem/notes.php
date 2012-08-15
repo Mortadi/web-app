@@ -35,58 +35,6 @@ $results = $sql->fetchAll();
 <h2>Your Fluent Journal</h2>
 </header>
 
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#date1').scroller();
-            wheels = [];
-            
-            for (var i = 0; i < 60; i++) {
-               /* if (i < 16) wheels[0]['Hours'][i] = (i < 10) ? ('0' + i) : i;
-                wheels[1]['Minutes'][i] = (i < 10) ? ('0' + i) : i;*/
-            }
-            $('#custom').scroller({
-                width: 90,
-                wheels: wheels,
-                showOnFocus: false,
-                formatResult: function (d) {
-                    return ((d[0] - 0) + ((d[1] - 0) / 60)).toFixed(1);
-                },
-                parseValue: function (s) {
-                    var d = s.split('.');
-                    d[0] = d[0] - 0;
-                    d[1] = d[1] ? ((('0.' + d[1]) - 0) * 60) : 0;
-                    return d;
-                }
-            });
-            $('#custom').click(function() { $(this).scroller('show'); });
-            $('#disable').click(function() {
-                if ($('#date1').scroller('isDisabled')) {
-                    $('#date2').scroller('enable');
-                    $(this).text('Disable');
-                }
-                else {
-                  
-                    $(this).text('Enable');
-                }
-                return false;
-            });
-
-           
-
-            $('#set').click(function() {
-                $('#date1').scroller('setDate', new Date(), true);
-                return false;
-            });
-
-            $('#theme, #mode').change(function() {
-                var t = $('#theme').val();
-                var m = $('#mode').val();
-                $('#date1').scroller('destroy').scroller({ theme: t, mode: m });
-               
-            });
-        });
-    </script>
 <div class="main">
  
 <?php foreach ($results as $notes) : ?>

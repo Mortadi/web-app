@@ -16,6 +16,14 @@
         this.setDefaults = function(o) {
             $.extend(defaults, o);
         }
+		
+		$('#deleteButton').on('click', function (ev) {
+			$('#dialogBox:hidden').show();
+		});
+		
+		$('#cancelButton').on('click', function (ev) {
+			$('#dialogBox:visible').hide();
+		});
 
         this.formatDate = function (format, date, settings) {
             if (!date) return null;

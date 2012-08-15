@@ -34,16 +34,23 @@ $results = $sql->fetch();
 <h2>Your Fluent Journal</h2>
 </header>
 <body>
-<div class="singlebody">
-<div class="main">
+
+<div class="main"><div class="singlebody">
 <h1><?php echo $results['title']; ?> </h1>
 <h1><?php echo $results['date']; ?></h1>
 <h2><?php echo $results['note']; ?></h2>
-<a href="delete.php?id=<?php echo $id; ?>"><button>Delete</button></a>
+<button id="deleteButton">Delete</button>
 <a href="edit.php?id=<?php echo $id; ?>"><button>Edit</button></a>
 <a href="notes.php"><button>Notes</button></a>
+<div id="dialogBox">
+	<p>Are you sure?</p>
+    <a href="delete.php?id=<?php echo $id; ?>"><button id="yesButton">Yes</button></a>
+    <button id="cancelButton">Cancel</button>
 </div>
 </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="js/general.js"></script>
 </body>
 </html>
 
