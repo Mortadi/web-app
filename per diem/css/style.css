@@ -62,10 +62,10 @@ color: #FC0;
 clear:both;
 }
 .another button{
-width:23em;	
+width:20em;	
 }
 .another{
-	width:33em;	
+	width:20em;	
 margin: 0 auto;
 }
 textarea{
@@ -148,7 +148,7 @@ width: 10em;
 clear:both;
 margin:1em auto;
 float: none;
-margin-right: 28em;
+
 background-color: #FC0;
 color:#999;
 }
