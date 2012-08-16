@@ -46,6 +46,7 @@ text-shadow:  5px 5px 5px #999;
 }
 header{
 margin-right:5em;
+display: inline;
 
 }
 button{
