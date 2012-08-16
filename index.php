@@ -146,8 +146,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <button type="submit" class="submit">Submit</button> 
         </form>
       <a href="notes.php"><button>Notes</button></a> </div>
-</div>
-</div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="js/general.js"></script>
 </body>
