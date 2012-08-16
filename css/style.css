@@ -7,6 +7,7 @@ font-family: 'Simonetta', cursive;
 }
 .main {
 		margin: 0 auto;
+		postion: relative;
 	background: #000;
     border: 1px solid #333;
     background: -webkit-gradient(linear,left bottom,left top,color-stop(0, #000),color-stop(1, #444));
@@ -106,6 +107,12 @@ form{
 	width: 40em;
 
 }
+#noteBtn {
+	position: absolute;
+	bottom: 20px;
+	right: 40px;		
+}
+
 .singlebody{
 width:40em;
 margin: 1em auto;	
