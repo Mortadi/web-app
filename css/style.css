@@ -6,6 +6,7 @@ background-color:#333;
 font-family: 'Simonetta', cursive;
 }
 .main {
+		margin: 0 auto;
 	background: #000;
     border: 1px solid #333;
     background: -webkit-gradient(linear,left bottom,left top,color-stop(0, #000),color-stop(1, #444));
@@ -13,7 +14,7 @@ font-family: 'Simonetta', cursive;
     box-shadow: inset 0 0 5px #000;
 	border-radius: 7em 0.5em;
 	width: 40em;
-	margin: 0 auto;
+
 } 
 .main a{
 width: 5em;	
