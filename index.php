@@ -117,9 +117,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <header>
 <h1>Per Diem,</h1>
 <h2>Your Fluent Journal</h2>
+<a href="notes.php"><button>Notes</button></a> 
 </header>
 
-<a href="notes.php"><button>Notes</button></a> 
+
 <div class="main">
  <form id="notes" action="index.php" method="post">
         
