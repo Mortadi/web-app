@@ -119,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <h2>Your Fluent Journal</h2>
 </header>
 
-
+<a class="notesbutton" href="notes.php"><button>Notes</button></a>
 <div class="main">
  <form id="notes" action="index.php" method="post">
         
@@ -144,7 +144,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         	
             <button type="submit" class="submit">Submit</button> 
         </form>
-      <a class="notesbutton" href="notes.php"><button>Notes</button></a></div>
+      </div>
 </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
